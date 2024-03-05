@@ -25,7 +25,7 @@ public interface IFPMgr {
 
 	boolean verifyMatch(Context context,PtInputBir bir);
 	void open(Context context);
-	void close();
+	void close(Context context);
 	public  byte[] GrabImage(byte byType) throws PtException;
 	public int getImagewidth() throws PtException;
 

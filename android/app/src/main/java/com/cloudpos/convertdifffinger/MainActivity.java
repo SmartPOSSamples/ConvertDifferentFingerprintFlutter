@@ -91,7 +91,6 @@ public class MainActivity extends FlutterActivity implements MethodChannel.Metho
         mHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
-                String str = msg.obj + "\n";
                 if (msg.what == 0) {
                     mChannel.invokeMethod("getDataNomal", msg.obj);
                 } else if (msg.what == 1) {
@@ -278,7 +277,7 @@ public class MainActivity extends FlutterActivity implements MethodChannel.Metho
             e.printStackTrace();
             writerLogInTextview("exception occured !" + e.getMessage(),2);
         } finally {
-            fpMgr.close();
+            fpMgr.close(this);
         }
         return crossmatchBs;
     }

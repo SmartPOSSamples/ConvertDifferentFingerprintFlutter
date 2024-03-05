@@ -690,8 +690,13 @@ public class FPMgrImpl implements IFPMgr, PtGuiStateCallback {
         }
     }
 
-    public void close() {
+    public void close(Context context) {
         closeSession();
         terminatePtapi();
+        try {
+            PtUsbHost.PtUnregisterUsbReceiver(context);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
